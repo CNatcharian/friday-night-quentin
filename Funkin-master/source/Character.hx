@@ -174,6 +174,27 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 
 				playAnim('idle');
+			case 'flux':
+				// die.
+				tex = Paths.getSparrowAtlas('flux_assets');
+				frames = tex;
+				animation.addByPrefix('idle', 'idle', 24);
+				animation.addByPrefix('singUP', 'up', 24);
+				animation.addByPrefix('singRIGHT', 'right', 24);
+				animation.addByPrefix('singDOWN', 'down', 24);
+				animation.addByPrefix('singLEFT', 'left', 24);
+				animation.addByPrefix('deathglare', 'zap', 24);
+				animation.addByPrefix('micdrop', 'mic drop', 24);
+
+				addOffset('idle');
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+				addOffset("deathglare");
+				addOffset("micdrop");
+
+				playAnim('idle');
 			case 'spooky':
 				tex = Paths.getSparrowAtlas('spooky_kids_assets');
 				frames = tex;
@@ -442,6 +463,46 @@ class Character extends FlxSprite
 				setGraphicSize(Std.int(width * 6));
 				updateHitbox();
 				antialiasing = false;
+				flipX = true;
+
+			case 'quentin':
+				// um, hi guys
+				var tex = Paths.getSparrowAtlas('quentin_assets');
+				frames = tex;
+				animation.addByPrefix('idle', 'idle dance', 24, false);
+				animation.addByPrefix('singUP', 'sing up', 24, false);
+				animation.addByPrefix('singLEFT', 'sing left', 24, false);
+				animation.addByPrefix('singRIGHT', 'sing right', 24, false);
+				animation.addByPrefix('singDOWN', 'sing down', 24, false);
+				animation.addByPrefix('singUPmiss', 'up miss', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'left miss', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'right miss', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'down miss', 24, false);
+				animation.addByPrefix('hey', 'hey', 24, false);
+
+				animation.addByPrefix('firstDeath', "dies", 24, false);
+				animation.addByPrefix('deathLoop', "death loop", 24, true);
+				animation.addByPrefix('deathConfirm', "dead confirm", 24, false);
+
+				animation.addByPrefix('scared', 'idle shaking', 24);
+
+				addOffset('idle');
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+				addOffset("singUPmiss");
+				addOffset("singRIGHTmiss");
+				addOffset("singLEFTmiss");
+				addOffset("singDOWNmiss");
+				addOffset("hey");
+				addOffset('firstDeath');
+				addOffset('deathLoop');
+				addOffset('deathConfirm');
+				addOffset('scared');
+
+				playAnim('idle');
+
 				flipX = true;
 
 			case 'senpai':

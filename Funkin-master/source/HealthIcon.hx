@@ -36,6 +36,8 @@ class HealthIcon extends FlxSprite
 		animation.add('monster-christmas', [19, 20], 0, false, isPlayer);
 		animation.add('tek', [24, 25], 0, false, isPlayer);
 		animation.add('spike', [26, 27], 0, false, isPlayer);
+		animation.add('flux', [28, 29], 0, false, isPlayer);
+		animation.add('quentin', [30, 31], 0, false, isPlayer);
 		animation.play(char);
 		scrollFactor.set();
 	}

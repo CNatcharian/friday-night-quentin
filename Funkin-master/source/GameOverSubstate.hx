@@ -16,7 +16,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public function new(x:Float, y:Float)
 	{
-		var daStage = PlayState.curStage;
+		// time for chairian to get funky
+        // gotta figure out how to play Quentin's death anims
+        var daStage = PlayState.curStage;
 		var daBf:String = '';
 		switch (daStage)
 		{
@@ -29,6 +31,11 @@ class GameOverSubstate extends MusicBeatSubstate
 			default:
 				daBf = 'bf';
 		}
+
+        // oh yeah, it's all coming together
+        if (PlayState.SONG.player1 == 'quentin') { 
+            daBf = 'quentin';
+        }
 
 		super();
 

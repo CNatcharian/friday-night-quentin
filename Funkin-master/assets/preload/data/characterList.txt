@@ -17,3 +17,5 @@ senpai-angry
 spirit
 tek
 spike
+flux
+quentin
