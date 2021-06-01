@@ -29,7 +29,7 @@
 	<SubTexture name="idle0010" x="2436" y="0" width="609" height="973"/>
 	<SubTexture name="idle0011" x="2436" y="0" width="609" height="973"/>
 	<SubTexture name="idle0012" x="2436" y="0" width="609" height="973"/>
-	<SubTexture name="idle0013" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="misc0013" x="2436" y="0" width="609" height="973"/>
 	<SubTexture name="left0000" x="3045" y="0" width="609" height="973"/>
 	<SubTexture name="left0001" x="3045" y="0" width="609" height="973"/>
 	<SubTexture name="left0002" x="3045" y="0" width="609" height="973"/>

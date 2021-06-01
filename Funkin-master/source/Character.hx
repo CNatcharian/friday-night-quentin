@@ -161,7 +161,7 @@ class Character extends FlxSprite
 				// finally, let's get this party started
 				tex = Paths.getSparrowAtlas('spike_assets');
 				frames = tex;
-				animation.addByPrefix('idle', 'idle', 24);
+				animation.addByPrefix('idle', 'idle', 30);
 				animation.addByPrefix('singUP', 'up', 24);
 				animation.addByPrefix('singRIGHT', 'right', 24);
 				animation.addByPrefix('singDOWN', 'down', 24);

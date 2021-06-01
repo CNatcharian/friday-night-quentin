@@ -76,6 +76,15 @@
 	<SubTexture name="sing down0012" x="2436" y="0" width="609" height="973"/>
 	<SubTexture name="sing down0013" x="2436" y="0" width="609" height="973"/>
 	<SubTexture name="sing down0014" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0015" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0016" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0017" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0018" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0019" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0020" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0021" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0022" x="2436" y="0" width="609" height="973"/>
+	<SubTexture name="sing down0023" x="2436" y="0" width="609" height="973"/>
 	<SubTexture name="down miss0000" x="3045" y="0" width="609" height="973"/>
 	<SubTexture name="down miss0001" x="3045" y="0" width="609" height="973"/>
 	<SubTexture name="down miss0002" x="3045" y="0" width="609" height="973"/>
@@ -157,6 +166,15 @@
 	<SubTexture name="sing right0012" x="2436" y="1946" width="609" height="973"/>
 	<SubTexture name="sing right0013" x="2436" y="1946" width="609" height="973"/>
 	<SubTexture name="sing right0014" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0015" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0016" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0017" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0018" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0019" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0020" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0021" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0022" x="2436" y="1946" width="609" height="973"/>
+	<SubTexture name="sing right0023" x="2436" y="1946" width="609" height="973"/>
 	<SubTexture name="right miss0000" x="3045" y="1946" width="609" height="973"/>
 	<SubTexture name="right miss0001" x="3045" y="1946" width="609" height="973"/>
 	<SubTexture name="right miss0002" x="3045" y="1946" width="609" height="973"/>
@@ -196,6 +214,15 @@
 	<SubTexture name="sing left0012" x="609" y="2919" width="609" height="973"/>
 	<SubTexture name="sing left0013" x="609" y="2919" width="609" height="973"/>
 	<SubTexture name="sing left0014" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0015" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0016" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0017" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0018" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0019" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0020" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0021" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0022" x="609" y="2919" width="609" height="973"/>
+	<SubTexture name="sing left0023" x="609" y="2919" width="609" height="973"/>
 	<SubTexture name="left miss0000" x="1218" y="2919" width="609" height="973"/>
 	<SubTexture name="left miss0001" x="1218" y="2919" width="609" height="973"/>
 	<SubTexture name="left miss0002" x="1218" y="2919" width="609" height="973"/>
@@ -235,6 +262,15 @@
 	<SubTexture name="sing up0012" x="2436" y="2919" width="609" height="973"/>
 	<SubTexture name="sing up0013" x="2436" y="2919" width="609" height="973"/>
 	<SubTexture name="sing up0014" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0015" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0016" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0017" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0018" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0019" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0020" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0021" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0022" x="2436" y="2919" width="609" height="973"/>
+	<SubTexture name="sing up0023" x="2436" y="2919" width="609" height="973"/>
 	<SubTexture name="up miss0000" x="3045" y="2919" width="609" height="973"/>
 	<SubTexture name="up miss0001" x="3045" y="2919" width="609" height="973"/>
 	<SubTexture name="up miss0002" x="3045" y="2919" width="609" height="973"/>

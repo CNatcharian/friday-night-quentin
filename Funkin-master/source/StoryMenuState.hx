@@ -30,7 +30,7 @@ class StoryMenuState extends MusicBeatState
 		['Satin-Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
 		['Senpai', 'Roses', 'Thorns'],
-		['The Baddest']
+		['The-Baddest']
 	];
 	var curDifficulty:Int = 1;
 
@@ -436,6 +436,9 @@ class StoryMenuState extends MusicBeatState
 		{
 			txtTracklist.text += "\n" + i;
 		}
+		
+		// hehe ugly fix for final tracks not appearing -chairian
+		txtTracklist.text += "\n" + stringThing[stringThing.length - 1];
 
 		txtTracklist.text = txtTracklist.text.toUpperCase();
 
