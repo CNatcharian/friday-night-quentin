@@ -30,7 +30,7 @@ class StoryMenuState extends MusicBeatState
 		['Satin-Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
 		['Senpai', 'Roses', 'Thorns'],
-		['Bitcrush']
+		['The Baddest']
 	];
 	var curDifficulty:Int = 1;
 
@@ -55,7 +55,7 @@ class StoryMenuState extends MusicBeatState
 		"MOMMY MUST MURDER",
 		"RED SNOW",
 		"hating simulator ft. moawling",
-		"Tek Aint Happy"
+		"Quentin VS. The World"
 	];
 
 	var txtWeekTitle:FlxText;
