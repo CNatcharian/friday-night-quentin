@@ -4,3 +4,6 @@
 Based on source code from https://github.com/ninjamuffin99/Funkin
 Quentin and friends are (c) 2021 Chris Natcharian
 I don't own anything from the original game.
+
+TO PLAY THE GAME:
+Open Funkin-master/export/release/windows/bin/Funkin.exe.
