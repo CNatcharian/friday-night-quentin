@@ -63,6 +63,7 @@ class ChartingState extends MusicBeatState
 
 	var curRenderedNotes:FlxTypedGroup<Note>;
 	var curRenderedSustains:FlxTypedGroup<FlxSprite>;
+    var curRenderedMarks:FlxTypedGroup<FlxSprite>;
 
 	var gridBG:FlxSprite;
 
@@ -107,6 +108,7 @@ class ChartingState extends MusicBeatState
 
 		curRenderedNotes = new FlxTypedGroup<Note>();
 		curRenderedSustains = new FlxTypedGroup<FlxSprite>();
+        curRenderedMarks = new FlxTypedGroup<FlxSprite>();
 
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;
@@ -168,6 +170,7 @@ class ChartingState extends MusicBeatState
 
 		add(curRenderedNotes);
 		add(curRenderedSustains);
+        add(curRenderedMarks);
 
 		super.create();
 	}
@@ -323,6 +326,7 @@ class ChartingState extends MusicBeatState
 	}
 
 	var stepperSusLength:FlxUINumericStepper;
+    var check_fastNote:FlxUICheckBox;
 
 	function addNoteUI():Void
 	{
@@ -335,8 +339,12 @@ class ChartingState extends MusicBeatState
 
 		var applyLength:FlxButton = new FlxButton(100, 10, 'Apply');
 
+        check_fastNote = new FlxUICheckBox(10, 30, null, null, '2x scroll speed', 100);
+		check_fastNote.name = 'check_fastNote';
+
 		tab_group_note.add(stepperSusLength);
 		tab_group_note.add(applyLength);
+        tab_group_note.add(check_fastNote);
 
 		UI_box.addGroup(tab_group_note);
 	}
@@ -405,6 +413,8 @@ class ChartingState extends MusicBeatState
 					FlxG.log.add('changed bpm shit');
 				case "Alt Animation":
 					_song.notes[curSection].altAnim = check.checked;
+                case "2x scroll speed":
+					updateFastNote();
 			}
 		}
 		else if (id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper))
@@ -766,8 +776,8 @@ class ChartingState extends MusicBeatState
 		for (note in _song.notes[daSec - sectionNum].sectionNotes)
 		{
 			var strum = note[0] + Conductor.stepCrochet * (_song.notes[daSec].lengthInSteps * sectionNum);
-
-			var copiedNote:Array<Dynamic> = [strum, note[1], note[2]];
+            var fast = note.length > 3 ? note[3] : 0;
+			var copiedNote:Array<Dynamic> = [strum, note[1], note[2], fast];
 			_song.notes[daSec].sectionNotes.push(copiedNote);
 		}
 
@@ -803,9 +813,27 @@ class ChartingState extends MusicBeatState
 
 	function updateNoteUI():Void
 	{
-		if (curSelectedNote != null)
+		if (curSelectedNote != null) {
 			stepperSusLength.value = curSelectedNote[2];
+            // toggle fastNote for curSelectedNote
+            if (curSelectedNote.length > 3) {
+                check_fastNote.checked = curSelectedNote[3] == 1;
+            }
+        }
 	}
+
+    function updateFastNote():Void
+    {
+        if (curSelectedNote != null) { 
+            if (curSelectedNote.length <= 3) {
+                // addFastFlagToNote(curSelectedNote);
+            }
+            else {
+                curSelectedNote[3] = check_fastNote.checked ? 1 : 0;
+            }
+            updateGrid();
+        }
+    }
 
 	function updateGrid():Void
 	{
@@ -817,6 +845,11 @@ class ChartingState extends MusicBeatState
 		while (curRenderedSustains.members.length > 0)
 		{
 			curRenderedSustains.remove(curRenderedSustains.members[0], true);
+		}
+
+        while (curRenderedMarks.members.length > 0)
+		{
+			curRenderedMarks.remove(curRenderedMarks.members[0], true);
 		}
 
 		var sectionInfo:Array<Dynamic> = _song.notes[curSection].sectionNotes;
@@ -855,6 +888,10 @@ class ChartingState extends MusicBeatState
 			var daNoteInfo = i[1];
 			var daStrumTime = i[0];
 			var daSus = i[2];
+            var daFast = 0;
+            if (i.length > 3) {
+                daFast = i[3];
+            }
 
 			var note:Note = new Note(daStrumTime, daNoteInfo % 4);
 			note.sustainLength = daSus;
@@ -871,6 +908,12 @@ class ChartingState extends MusicBeatState
 					note.y + GRID_SIZE).makeGraphic(8, Math.floor(FlxMath.remapToRange(daSus, 0, Conductor.stepCrochet * 16, 0, gridBG.height)));
 				curRenderedSustains.add(sustainVis);
 			}
+
+            if (daFast > 0) {
+                // make a lil mark on the note to show it's speedy
+                var fastMark:FlxSprite = new FlxSprite(note.x, note.y).makeGraphic(8, 8, FlxColor.ORANGE);
+                curRenderedMarks.add(fastMark);
+            }
 		}
 	}
 
@@ -943,8 +986,9 @@ class ChartingState extends MusicBeatState
 		var noteStrum = getStrumTime(dummyArrow.y) + sectionStartTime();
 		var noteData = Math.floor(FlxG.mouse.x / GRID_SIZE);
 		var noteSus = 0;
+        var noteFast = 0;
 
-		_song.notes[curSection].sectionNotes.push([noteStrum, noteData, noteSus]);
+		_song.notes[curSection].sectionNotes.push([noteStrum, noteData, noteSus, noteFast]);
 
 		curSelectedNote = _song.notes[curSection].sectionNotes[_song.notes[curSection].sectionNotes.length - 1];
 
