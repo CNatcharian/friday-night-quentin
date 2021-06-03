@@ -1152,7 +1152,17 @@ class PlayState extends MusicBeatState
 				else
 					oldNote = null;
 
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
+                // chairian boutta fuck shit up with FAST NOTES
+                var noteGoFast:Bool = false;
+                // check for a 4th datum in the note json
+                // if it's a 1, this note's sonic the hedgehog
+                if (songNotes.length > 3) {
+                    if (songNotes[3] == 1) {
+                        noteGoFast = true;
+                    }
+                }
+
+				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote, false, noteGoFast);
 				swagNote.sustainLength = songNotes[2];
 				swagNote.scrollFactor.set(0, 0);
 
@@ -1165,7 +1175,7 @@ class PlayState extends MusicBeatState
 				{
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 
-					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
+					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + (Conductor.stepCrochet / swagNote.getNoteMultiplier()), daNoteData, oldNote, true, noteGoFast);
 					sustainNote.scrollFactor.set();
 					unspawnNotes.push(sustainNote);
 
@@ -1690,7 +1700,7 @@ class PlayState extends MusicBeatState
 					daNote.active = true;
 				}
 
-				daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (0.45 * FlxMath.roundDecimal(SONG.speed, 2)));
+				daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (0.45 * FlxMath.roundDecimal(SONG.speed, 2) * daNote.getNoteMultiplier()));
 
 				// i am so fucking sorry for this if condition
 				if (daNote.isSustainNote

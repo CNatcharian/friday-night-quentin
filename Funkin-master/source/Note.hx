@@ -24,6 +24,8 @@ class Note extends FlxSprite
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
 
+    public var fastNote:Bool = false;
+
 	public var noteScore:Float = 1;
 
 	public static var swagWidth:Float = 160 * 0.7;
@@ -31,8 +33,9 @@ class Note extends FlxSprite
 	public static var GREEN_NOTE:Int = 2;
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
+    public static var SONIC_SPEED:Float = 2.0;
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false)
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?fastNote:Bool = false)
 	{
 		super();
 
@@ -48,6 +51,11 @@ class Note extends FlxSprite
 		this.strumTime = strumTime;
 
 		this.noteData = noteData;
+
+        this.fastNote = fastNote;
+        //if (prevNote.fastNote) {
+        //    this.fastNote = prevNote.fastNote;
+        //}
 
 		var daStage:String = PlayState.curStage;
 
@@ -160,12 +168,16 @@ class Note extends FlxSprite
 						prevNote.animation.play('redhold');
 				}
 
-				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * PlayState.SONG.speed;
+				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * PlayState.SONG.speed * getNoteMultiplier();
 				prevNote.updateHitbox();
 				// prevNote.setGraphicSize();
 			}
 		}
 	}
+
+    public function getNoteMultiplier():Float {
+        return fastNote ? SONIC_SPEED : 1.0;
+    }
 
 	override function update(elapsed:Float)
 	{
