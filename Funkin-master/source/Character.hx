@@ -122,6 +122,34 @@ class Character extends FlxSprite
 				updateHitbox();
 				antialiasing = false;
 
+			case 'duplex':
+				// girls, girls, you're both pretty.
+				tex = Paths.getSparrowAtlas('duplex_assets');
+				frames = tex;
+				animation.addByPrefix('cheer', 'duplex cheer 0', 24, false);
+				animation.addByPrefix('singLEFT', 'duplex sing left', 24, false);
+				animation.addByPrefix('singRIGHT', 'duplex sing right', 24, false);
+				animation.addByPrefix('singUP', 'duplex sing up', 24, false);
+				animation.addByPrefix('singDOWN', 'duplex sing down', 24, false);
+				animation.addByPrefix('sad', 'duplex sad 0', 24, false);
+				animation.addByPrefix('danceLeft', 'duplex left dance', 24, false);
+				animation.addByPrefix('danceRight', 'duplex right dance', 24, false);
+				animation.addByPrefix('scared', 'duplex fear 0', 24);
+
+				addOffset('cheer');
+				addOffset('sad');
+				addOffset('danceLeft');
+				addOffset('danceRight');
+
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+
+				addOffset('scared');
+
+				playAnim('danceRight');
+
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('DADDY_DEAREST');
@@ -692,6 +720,16 @@ class Character extends FlxSprite
 							playAnim('danceLeft');
 					}
 				case 'gf-pixel':
+					if (!animation.curAnim.name.startsWith('hair'))
+					{
+						danced = !danced;
+
+						if (danced)
+							playAnim('danceRight');
+						else
+							playAnim('danceLeft');
+					}
+                case 'duplex':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
