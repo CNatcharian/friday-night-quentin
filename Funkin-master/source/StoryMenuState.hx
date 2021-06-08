@@ -44,7 +44,7 @@ class StoryMenuState extends MusicBeatState
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
 		['senpai', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
+		['qbadguys', 'quentin', 'duplex'],
 	];
 
 	var weekNames:Array<String> = [
@@ -174,6 +174,38 @@ class StoryMenuState extends MusicBeatState
 
 			grpWeekCharacters.add(weekCharacterThing);
 		}
+        // hehe horrible hax to hide my horrendous extra sprite sheet
+        for (char in 0...3)
+		{
+			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, weekCharacters[7][char]);
+			weekCharacterThing.y += 70;
+			weekCharacterThing.antialiasing = true;
+            // all based on bf's portrait
+            if (char == 0) {
+                weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.8));
+                weekCharacterThing.updateHitbox();
+			    weekCharacterThing.y -= 20;
+                weekCharacterThing.x -= 120;
+            }
+            else if (char == 2) {
+                weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
+                weekCharacterThing.updateHitbox();
+			    weekCharacterThing.y -= 50;
+                weekCharacterThing.x -= 60;
+            }
+            else {
+                weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
+                weekCharacterThing.updateHitbox();
+			    weekCharacterThing.y -= 50;
+                weekCharacterThing.x -= 80;
+            }
+		    
+
+			grpWeekCharacters.add(weekCharacterThing);
+		}
+        grpWeekCharacters.members[3].visible = false;
+        grpWeekCharacters.members[4].visible = false;
+        grpWeekCharacters.members[5].visible = false;
 
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
@@ -303,7 +335,12 @@ class StoryMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
 				grpWeekText.members[curWeek].startFlashing();
-				grpWeekCharacters.members[1].animation.play('bfConfirm');
+                if (curWeek == 7) {
+                    grpWeekCharacters.members[4].animation.play('quentinConfirm');
+                }
+                else {
+				    grpWeekCharacters.members[1].animation.play('bfConfirm');
+                }
 				stopspamming = true;
 			}
 
@@ -401,34 +438,54 @@ class StoryMenuState extends MusicBeatState
 
 	function updateText()
 	{
-		grpWeekCharacters.members[0].animation.play(weekCharacters[curWeek][0]);
-		grpWeekCharacters.members[1].animation.play(weekCharacters[curWeek][1]);
-		grpWeekCharacters.members[2].animation.play(weekCharacters[curWeek][2]);
-		txtTracklist.text = "Tracks\n";
+		if (curWeek == 7) {
+            grpWeekCharacters.members[0].visible = false;
+            grpWeekCharacters.members[1].visible = false;
+            grpWeekCharacters.members[2].visible = false;
+            grpWeekCharacters.members[3].visible = true;
+            grpWeekCharacters.members[4].visible = true;
+            grpWeekCharacters.members[5].visible = true;
+		    grpWeekCharacters.members[3].animation.play(weekCharacters[curWeek][0]);
+		    grpWeekCharacters.members[4].animation.play(weekCharacters[curWeek][1]);
+		    grpWeekCharacters.members[5].animation.play(weekCharacters[curWeek][2]);
+        }
+        else {
+            grpWeekCharacters.members[0].visible = true;
+            grpWeekCharacters.members[1].visible = true;
+            grpWeekCharacters.members[2].visible = true;
+            grpWeekCharacters.members[3].visible = false;
+            grpWeekCharacters.members[4].visible = false;
+            grpWeekCharacters.members[5].visible = false;
+            grpWeekCharacters.members[0].animation.play(weekCharacters[curWeek][0]);
+		    grpWeekCharacters.members[1].animation.play(weekCharacters[curWeek][1]);
+		    grpWeekCharacters.members[2].animation.play(weekCharacters[curWeek][2]);
 
-		switch (grpWeekCharacters.members[0].animation.curAnim.name)
-		{
-			case 'parents-christmas':
-				grpWeekCharacters.members[0].offset.set(200, 200);
-				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 0.99));
+		    switch (grpWeekCharacters.members[0].animation.curAnim.name)
+		    {
+		    	case 'parents-christmas':
+		    		grpWeekCharacters.members[0].offset.set(200, 200);
+		    		grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 0.99));
 
-			case 'senpai':
-				grpWeekCharacters.members[0].offset.set(130, 0);
-				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1.4));
+		    	case 'senpai':
+		    		grpWeekCharacters.members[0].offset.set(130, 0);
+		    		grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1.4));
 
-			case 'mom':
-				grpWeekCharacters.members[0].offset.set(100, 200);
-				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1));
+		    	case 'mom':
+		    		grpWeekCharacters.members[0].offset.set(100, 200);
+		    		grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1));
 
-			case 'dad':
-				grpWeekCharacters.members[0].offset.set(120, 200);
-				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1));
+		    	case 'dad':
+		    		grpWeekCharacters.members[0].offset.set(120, 200);
+		    		grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1));
 
-			default:
-				grpWeekCharacters.members[0].offset.set(100, 100);
-				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1));
-				// grpWeekCharacters.members[0].updateHitbox();
-		}
+		    	default:
+		    		grpWeekCharacters.members[0].offset.set(100, 100);
+		    		grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1));
+		    		// grpWeekCharacters.members[0].updateHitbox();
+		    }
+        }
+
+        txtTracklist.text = "Tracks\n";
 
 		var stringThing:Array<String> = weekData[curWeek];
 
