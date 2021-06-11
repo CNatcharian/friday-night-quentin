@@ -567,7 +567,7 @@ class PlayState extends MusicBeatState
 
 		                  add(stageCurtains);
 		          }
-				  case 'the-baddest':
+				  case 'the-baddest' | 'lockdown':
 		          {
 		                  defaultCamZoom = 0.9;
 		                  curStage = 'qschool';
