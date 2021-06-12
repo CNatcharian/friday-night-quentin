@@ -77,24 +77,4 @@
 	<SubTexture name="Tek idle dance0008" x="700" y="1946" width="700" height="973"/>
 	<SubTexture name="Tek idle dance0009" x="700" y="1946" width="700" height="973"/>
 	<SubTexture name="Tek idle dance0010" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0011" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0012" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0013" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0014" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0015" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0016" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0017" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0018" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0019" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0020" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0021" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0022" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0023" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0024" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0025" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0026" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0027" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0028" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0029" x="700" y="1946" width="700" height="973"/>
-	<SubTexture name="Tek idle dance0030" x="700" y="1946" width="700" height="973"/>
 </TextureAtlas>
