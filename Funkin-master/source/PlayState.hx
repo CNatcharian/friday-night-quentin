@@ -567,10 +567,37 @@ class PlayState extends MusicBeatState
 
 		                  add(stageCurtains);
 		          }
-				  case 'the-baddest' | 'lockdown':
+				  case 'the-baddest':
 		          {
 		                  defaultCamZoom = 0.9;
 		                  curStage = 'qschool';
+		                  var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
+		                  bg.antialiasing = true;
+		                  bg.scrollFactor.set(0.9, 0.9);
+		                  bg.active = false;
+		                  add(bg);
+
+		                  var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+		                  stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+		                  stageFront.updateHitbox();
+		                  stageFront.antialiasing = true;
+		                  stageFront.scrollFactor.set(0.9, 0.9);
+		                  stageFront.active = false;
+		                  add(stageFront);
+
+		                  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+		                  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+		                  stageCurtains.updateHitbox();
+		                  stageCurtains.antialiasing = true;
+		                  stageCurtains.scrollFactor.set(1.3, 1.3);
+		                  stageCurtains.active = false;
+
+		                  add(stageCurtains);
+		          }
+                  case 'lockdown':
+		          {
+		                  defaultCamZoom = 0.9;
+		                  curStage = 'tekslab';
 		                  var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
 		                  bg.antialiasing = true;
 		                  bg.scrollFactor.set(0.9, 0.9);
@@ -637,6 +664,8 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
             case 'qschool':
                 gfVersion = 'duplex';
+            case 'tekslab':
+                gfVersion = 'rambunks';
 		}
 
 		if (curStage == 'limo')
@@ -660,7 +689,7 @@ class PlayState extends MusicBeatState
 					tweenCamIn();
 				}
 
-            case 'duplex':
+            case 'duplex' | 'rambunks':
 				dad.setPosition(gf.x, gf.y);
 				gf.visible = false;
 				if (isStoryMode)

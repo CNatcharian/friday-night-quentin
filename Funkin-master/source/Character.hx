@@ -150,6 +150,21 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
+			case 'rambunks':
+				// Hey, we're in the game! // Have you seen our sprite sheet? It's HUGE!
+				tex = Paths.getSparrowAtlas('rambunks_assets');
+				frames = tex;
+				animation.addByPrefix('danceLeft', 'rambunks dance left', 24, false);
+				animation.addByPrefix('danceRight', 'rambunks dance right', 24, false);
+				
+                var offX = 440;
+                var offY = 760;
+
+				addOffset('danceLeft', offX, offY);
+				addOffset('danceRight', offX, offY);
+
+				playAnim('danceRight');
+
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('DADDY_DEAREST');
@@ -730,6 +745,17 @@ class Character extends FlxSprite
 							playAnim('danceLeft');
 					}
                 case 'duplex':
+					if (!animation.curAnim.name.startsWith('hair'))
+					{
+						danced = !danced;
+
+						if (danced)
+							playAnim('danceRight');
+						else
+							playAnim('danceLeft');
+					}
+
+				case 'rambunks':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
