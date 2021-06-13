@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="rambunks_assets.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="rambunks dance left0000" x="0" y="0" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0001" x="1701" y="0" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0002" x="3402" y="0" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0003" x="5103" y="0" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0004" x="0" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0005" x="0" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0006" x="0" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0007" x="0" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0008" x="0" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0009" x="0" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0010" x="0" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0011" x="1701" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0012" x="1701" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0013" x="3402" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance left0014" x="3402" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0000" x="5103" y="1377" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0001" x="0" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0002" x="1701" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0003" x="3402" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0004" x="5103" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0005" x="5103" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0006" x="5103" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0007" x="5103" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0008" x="5103" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0009" x="5103" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0010" x="5103" y="2754" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0011" x="0" y="4131" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0012" x="0" y="4131" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0013" x="1701" y="4131" width="1701" height="1377"/>
+	<SubTexture name="rambunks dance right0014" x="1701" y="4131" width="1701" height="1377"/>
+</TextureAtlas>
