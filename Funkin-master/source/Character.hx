@@ -154,8 +154,8 @@ class Character extends FlxSprite
 				// Hey, we're in the game! // Have you seen our sprite sheet? It's HUGE!
 				tex = Paths.getSparrowAtlas('rambunks_assets');
 				frames = tex;
-				animation.addByPrefix('danceLeft', 'rambunks dance left', 24, false);
-				animation.addByPrefix('danceRight', 'rambunks dance right', 24, false);
+				animation.addByPrefix('danceLeft', 'rambunks dance left', 35, false);
+				animation.addByPrefix('danceRight', 'rambunks dance right', 35, false);
 				
                 var offX = 440;
                 var offY = 760;
