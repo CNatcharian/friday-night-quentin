@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="qportraits.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="duplex-mad0000" x="0" y="0" width="800" height="800"/>
+	<SubTexture name="duplex-reg0000" x="800" y="0" width="800" height="800"/>
+	<SubTexture name="flux0000" x="1600" y="0" width="800" height="800"/>
+	<SubTexture name="gog0000" x="2400" y="0" width="800" height="800"/>
+	<SubTexture name="perplex0000" x="3200" y="0" width="800" height="800"/>
+	<SubTexture name="quentin-concerned0000" x="0" y="800" width="800" height="800"/>
+	<SubTexture name="quentin-reg0000" x="800" y="800" width="800" height="800"/>
+	<SubTexture name="quentin-talk0000" x="1600" y="800" width="800" height="800"/>
+	<SubTexture name="spike-flustered0000" x="2400" y="800" width="800" height="800"/>
+	<SubTexture name="spike-reg0000" x="3200" y="800" width="800" height="800"/>
+	<SubTexture name="tek-angry0000" x="0" y="1600" width="800" height="800"/>
+	<SubTexture name="tek-reg0000" x="800" y="1600" width="800" height="800"/>
+	<SubTexture name="tek-shocked0000" x="1600" y="1600" width="800" height="800"/>
+</TextureAtlas>

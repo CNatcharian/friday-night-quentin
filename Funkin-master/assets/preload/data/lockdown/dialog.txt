@@ -1,5 +1,5 @@
-:tek:Gog and Perplex. I heard you falling from a mile up.
-:tek:The experiments are all packed away and there's absolutely nothing for you to -
+:tek-reg:Well if it isn't Gog and Perplex. I heard you falling from a mile up.
+:tek-reg:The experiments are all packed away and there's absolutely nothing for you to -
 :quentin-talk:um
 :tek-shocked:...WHY
 :tek-shocked:ARE THERE THREE OF YOU NOW
@@ -9,5 +9,6 @@
 :quentin-concerned:they do?
 :gog:So we took pity on the guy and brought him with us!
 :perplex:Since you're so hospitable and all!
-:tek-angry:This is the SEVENTY-FOURTH TIME I've told you two to get out of my lab and now you're INVITING FRIENDS!?
+:tek-angry:This is the SEVENTY-FOURTH TIME I've told you two to get out of my lab! 
+:tek-angry:And now you're INVITING FRIENDS!?
 :tek-angry:Prepare to get blasted across the PLANET!

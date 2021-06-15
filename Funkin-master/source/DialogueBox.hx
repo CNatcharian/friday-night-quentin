@@ -35,20 +35,20 @@ class DialogueBox extends FlxSpriteGroup
 	var bgFade:FlxSprite;
 
 	var qdialogportraitsGOOD:Array<String> = [
-        'quentin',
+        'quentin-reg',
 		'quentin-talk',
 		'quentin-concerned',
 		'gog',
 		'perplex',
-		'duplex',
+		'duplex-reg',
 		'duplex-mad'
 	];
 
 	var qdialogportraitsBAD:Array<String> = [
-		'tek',
+		'tek-reg',
 		'tek-shocked',
-		'tek-angry',
-		'spike',
+		'tek-angry', 
+		'spike-reg',
 		'spike-flustered',
 		'flux'
 	];
@@ -115,7 +115,7 @@ class DialogueBox extends FlxSpriteGroup
                 box.width = 200;
                 box.height = 200;
                 box.x = -100;
-                box.y = 375;
+                box.y = 375; // 375
 		}
 
 		this.dialogueList = dialogueList;
@@ -145,23 +145,25 @@ class DialogueBox extends FlxSpriteGroup
 		else if (PlayState.SONG.song.toLowerCase() == 'the-baddest' || PlayState.SONG.song.toLowerCase() == 'lockdown' || PlayState.SONG.song.toLowerCase() == 'deathglare') {
 			// quentin and friends share a spritesheet
 
-			portraitLeft = new FlxSprite(0, 40);
+			portraitLeft = new FlxSprite(100, -100);
 			portraitLeft.frames = Paths.getSparrowAtlas('qportraits', 'shared');
-			for (var portrait in qdialogportraitsBAD) {
+			for (portrait in qdialogportraitsBAD) {
 				portraitLeft.animation.addByPrefix(portrait, portrait, 24, false);
 			}
-			portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+			portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.12));
+            portraitLeft.antialiasing = true;
 			portraitLeft.updateHitbox();
 			portraitLeft.scrollFactor.set();
 			add(portraitLeft);
 			portraitLeft.visible = false;
 
-			portraitRight = new FlxSprite(-50, 40);
+			portraitRight = new FlxSprite(600, -100);
 			portraitRight.frames = Paths.getSparrowAtlas('qportraits', 'shared');
-			for (var portrait in qdialogportraitsGOOD) {
-				portraitLeft.animation.addByPrefix(portrait, portrait, 24, false);
+			for (portrait in qdialogportraitsGOOD) {
+				portraitRight.animation.addByPrefix(portrait, portrait, 24, false);
 			}
-			portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
+			portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.12));
+            portraitRight.antialiasing = true;
 			portraitRight.updateHitbox();
 			portraitRight.scrollFactor.set();
 			add(portraitRight);
@@ -176,23 +178,25 @@ class DialogueBox extends FlxSpriteGroup
 		add(box);
 
 		box.screenCenter(X);
-		portraitLeft.screenCenter(X);
+		// portraitLeft.screenCenter(X);
 
-		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
-		add(handSelect);
+        if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'roses' || PlayState.SONG.song.toLowerCase() == 'thorns') {
+		    handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
+		    add(handSelect);
+        }
 
 
 		if (!talkingRight)
 		{
-			// box.flipX = true;
+			box.flipX = true;
 		}
 
-		dropText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 32);
+		dropText = new FlxText(242, 482, Std.int(FlxG.width * 0.6), "", 32); // y=swagDialogue.y + 2
 		dropText.font = 'Pixel Arial 11 Bold';
 		dropText.color = 0xFFD89494;
 		add(dropText);
 
-		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
+		swagDialogue = new FlxTypeText(240, 480, Std.int(FlxG.width * 0.6), "", 32); // y=500
 		swagDialogue.font = 'Pixel Arial 11 Bold';
 		swagDialogue.color = 0xFF3F2021;
 		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
@@ -313,16 +317,18 @@ class DialogueBox extends FlxSpriteGroup
 					if (!portraitLeft.visible)
 					{
 						portraitLeft.visible = true;
-						portraitLeft.animation.play(curCharacter);
+                        box.flipX = true;
 					}
+                    portraitLeft.animation.play(curCharacter);
 				}
 				else {
 					portraitLeft.visible = false;
 					if (!portraitRight.visible)
 					{
 						portraitRight.visible = true;
-						portraitRight.animation.play(curCharacter);
+                        box.flipX = false;
 					}
+                    portraitRight.animation.play(curCharacter);
 				}
 		}
 	}
