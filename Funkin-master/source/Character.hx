@@ -192,12 +192,14 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Tek Sing Note RIGHT', 24);
 				animation.addByPrefix('singDOWN', 'Tek Sing Note DOWN', 24);
 				animation.addByPrefix('singLEFT', 'Tek Sing Note LEFT', 24);
+				animation.addByIndices('standStill', 'Tek idle dance', [10], "", 24, false);
 
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
+				addOffset('standStill');
 
 				playAnim('idle');
 			case 'spike':
@@ -209,12 +211,14 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24);
 				animation.addByPrefix('singDOWN', 'down', 24);
 				animation.addByPrefix('singLEFT', 'left', 24);
+				animation.addByIndices('standStill', 'idle', [12], "", 24, false);
 
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
+				addOffset("standStill");
 
 				playAnim('idle');
 			case 'flux':
@@ -228,6 +232,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'left', 24);
 				animation.addByPrefix('deathglare', 'zap', 24);
 				animation.addByPrefix('micdrop', 'mic drop', 24);
+				animation.addByIndices('standStill', 'mic drop', [0], "", 24, false);
 
 				addOffset('idle');
 				addOffset("singUP");
@@ -236,6 +241,7 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 				addOffset("deathglare");
 				addOffset("micdrop");
+                addOffset("standStill");
 
 				playAnim('idle');
 			case 'spooky':

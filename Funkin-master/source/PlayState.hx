@@ -878,6 +878,7 @@ class PlayState extends MusicBeatState
 				case 'thorns':
 					schoolIntro(doof);
                 case 'the-baddest' | 'lockdown' | 'deathglare':
+                    dad.animation.play('standStill'); // make sure they don't start boppin' till countdown
 					schoolIntro(doof);
 				default:
 					startCountdown();
