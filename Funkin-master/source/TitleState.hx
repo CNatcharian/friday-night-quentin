@@ -290,8 +290,9 @@ class TitleState extends MusicBeatState
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
-				// Check if version is outdated
-
+				// DON'T Check if version is outdated hAHAHAHAHAHAHAHAHAHAAAAA
+                FlxG.switchState(new MainMenuState());
+                /*
 				var version:String = "v" + Application.current.meta.get('version');
 
 				if (version.trim() != NGio.GAME_VER_NUMS.trim() && !OutdatedSubState.leftState)
@@ -307,6 +308,7 @@ class TitleState extends MusicBeatState
 				{
 					FlxG.switchState(new MainMenuState());
 				}
+                */
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
