@@ -105,6 +105,8 @@ class PlayState extends MusicBeatState
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var fastCar:FlxSprite;
 
+    var evilTrail:FlxTrail;
+
 	var upperBoppers:FlxSprite;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
@@ -168,7 +170,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
             case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
-            default:
+            case 'the-baddest' | 'lockdown' | 'deathglare':
 				dialogue = CoolUtil.coolTextFile(Paths.txt(SONG.song.toLowerCase() + '/dialog'));
 		}
 
@@ -554,13 +556,13 @@ class PlayState extends MusicBeatState
 		                  add(stageCurtains);
             
                           if (SONG.song.toLowerCase() == 'deathglare') {
-                          var shadow:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('qschool_shadow'));
-		                  shadow.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-		                  shadow.updateHitbox();
-		                  shadow.antialiasing = true;
-		                  shadow.scrollFactor.set(0.9, 0.9);
-		                  shadow.active = false;
-		                  add(shadow);    
+                              var shadow:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('qschool_darkness'));
+		                      shadow.setGraphicSize(Std.int(shadow.width * 0.9));
+		                      shadow.updateHitbox();
+		                      //shadow.antialiasing = true;
+		                      shadow.scrollFactor.set(0.9, 0.9);
+		                      shadow.active = false;
+		                      add(shadow);    
                           }          
 		          }
                   case 'lockdown' | 'bitcrush':
@@ -733,7 +735,7 @@ class PlayState extends MusicBeatState
 			case 'schoolEvil':
 				// trailArea.scrollFactor.set();
 
-				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+				evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
 				// evilTrail.changeValuesEnabled(false, false, false, false);
 				// evilTrail.changeGraphic()
 				add(evilTrail);
@@ -743,6 +745,12 @@ class PlayState extends MusicBeatState
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
+            case 'qschool': // flux gets a trail only during the chorus
+                if (SONG.song.toLowerCase() == 'deathglare' && false) { // disabled for now cuz framerate goes to plaid
+                    evilTrail = new FlxTrail(dad);
+                    evilTrail.visible = false;
+				    add(evilTrail);
+                }
 		}
 
 		add(gf);
@@ -758,7 +766,13 @@ class PlayState extends MusicBeatState
 		// doof.x += 70;
 		// doof.y = FlxG.height * 0.5;
 		doof.scrollFactor.set();
-		doof.finishThing = startCountdown;
+
+        if (SONG.song.toLowerCase() == 'deathglare') {
+            doof.finishThing = fluxMicDrop;
+        }
+        else {
+		    doof.finishThing = startCountdown;
+        }
 
 		Conductor.songPosition = -5000;
 
@@ -879,6 +893,8 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
                 case 'the-baddest' | 'lockdown' | 'deathglare':
                     dad.animation.play('standStill'); // make sure they don't start boppin' till countdown
+                    camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
+                    FlxG.camera.focusOn(camFollow.getPosition()); // look at your enemy
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -895,6 +911,29 @@ class PlayState extends MusicBeatState
 
 		super.create();
 	}
+
+    function fluxMicDrop():Void {
+        new FlxTimer().start(0.1, function(tmr:FlxTimer)
+		{
+            dad.animation.play('micdrop');
+
+			new FlxTimer().start(1.2, function(tmr:FlxTimer)
+			{
+				FlxG.sound.play(Paths.sound('mic_drop'));
+                new FlxTimer().start(0.3, function(tmr:FlxTimer)
+			    {
+				    camHUD.visible = true;
+                    //FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2.5, {
+					//    ease: FlxEase.quadInOut,
+					//    onComplete: function(twn:FlxTween)
+					//    {
+						    startCountdown();
+					//    }
+				    //});
+                });
+			});
+		});
+    }
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
@@ -1734,8 +1773,12 @@ class PlayState extends MusicBeatState
 
 					if (SONG.notes[Math.floor(curStep / 16)] != null)
 					{
-						if (SONG.notes[Math.floor(curStep / 16)].altAnim)
+						if (SONG.notes[Math.floor(curStep / 16)].altAnim) {
 							altAnim = '-alt';
+                            if (SONG.song.toLowerCase() == 'deathglare' && Math.abs(daNote.noteData) != 3) { // flux only has one alt animation
+                                altAnim = '';
+                            }
+                        }
 					}
 
 					switch (Math.abs(daNote.noteData))
@@ -2467,7 +2510,9 @@ class PlayState extends MusicBeatState
 		wiggleShit.update(Conductor.crochet);
 
 		// HARDCODING FOR MILF ZOOMS!
-		if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
+        // AND DEATHGLARE!
+		if ((curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
+            || (curSong.toLowerCase() == 'deathglare' && ((curBeat >= 97 && curBeat < 129) || (curBeat >= 209 && curBeat < 241)) && camZooming && FlxG.camera.zoom < 1.35))
 		{
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
@@ -2505,6 +2550,10 @@ class PlayState extends MusicBeatState
 			boyfriend.playAnim('hey', true);
 			dad.playAnim('cheer', true);
 		}
+
+        if (curSong.toLowerCase() == 'deathglare' && evilTrail != null) {
+            evilTrail.visible = ((curBeat >= 97 && curBeat < 129) || (curBeat >= 209 && curBeat < 241));
+        }
 
 		switch (curStage)
 		{

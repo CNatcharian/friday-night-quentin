@@ -187,7 +187,7 @@ class Character extends FlxSprite
 				// diary 0235: i am now in a video game
 				tex = Paths.getSparrowAtlas('tek_assets');
 				frames = tex;
-				animation.addByPrefix('idle', 'Tek idle dance', 24);
+				animation.addByPrefix('idle', 'Tek idle dance', 30);
 				animation.addByPrefix('singUP', 'Tek Sing Note UP', 24);
 				animation.addByPrefix('singRIGHT', 'Tek Sing Note RIGHT', 24);
 				animation.addByPrefix('singDOWN', 'Tek Sing Note DOWN', 24);
@@ -225,13 +225,13 @@ class Character extends FlxSprite
 				// die.
 				tex = Paths.getSparrowAtlas('flux_assets');
 				frames = tex;
-				animation.addByPrefix('idle', 'idle', 24);
+				animation.addByPrefix('idle', 'idle', 30);
 				animation.addByPrefix('singUP', 'up', 24);
 				animation.addByPrefix('singRIGHT', 'right', 24);
 				animation.addByPrefix('singDOWN', 'down', 24);
 				animation.addByPrefix('singLEFT', 'left', 24);
-				animation.addByPrefix('deathglare', 'zap', 24);
-				animation.addByPrefix('micdrop', 'mic drop', 24);
+				animation.addByPrefix('singRIGHT-alt', 'zap', 24);
+				animation.addByPrefix('micdrop', 'mic drop', 24, false);
 				animation.addByIndices('standStill', 'mic drop', [0], "", 24, false);
 
 				addOffset('idle');
