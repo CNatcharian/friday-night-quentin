@@ -18,11 +18,11 @@ class OutdatedSubState extends MusicBeatState
 		add(bg);
 		var ver = "v" + Application.current.meta.get('version');
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
-			"HEY! You're running an outdated version of the game!\nCurrent version is "
-			+ ver
-			+ " while the most recent version is "
-			+ NGio.GAME_VER
-			+ "! Press Space to go to itch.io, or ESCAPE to ignore this!!",
+			"And so the bully Flux got rekt, and Quentin got to sit with Duplex at lunch that day.\n"
+            + "They talked. They had a good time. They'll probably do it again sometime.\n\n"
+            + "Spike unfortunately didn't find any girls to sit with.\n"
+            + "Some say Tek is still chasing Gog and Perplex around the lab to this day.\n\n"
+            + "Press ESC to continue. Thanks for playing!",
 			32);
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		txt.screenCenter();
@@ -31,14 +31,10 @@ class OutdatedSubState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (controls.ACCEPT)
+		if (controls.BACK || controls.ACCEPT)
 		{
-			FlxG.openURL("https://ninja-muffin24.itch.io/funkin");
-		}
-		if (controls.BACK)
-		{
-			leftState = true;
-			FlxG.switchState(new MainMenuState());
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			FlxG.switchState(new StoryMenuState());
 		}
 		super.update(elapsed);
 	}
