@@ -2287,7 +2287,7 @@ class PlayState extends MusicBeatState
 	{
 		if (!boyfriend.stunned)
 		{
-			health -= 0.04;
+			health -= (SONG.song.toLowerCase() == 'deathglare') ? 0.08 : 0.04;
 			if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
@@ -2532,7 +2532,7 @@ class PlayState extends MusicBeatState
 		// HARDCODING FOR MILF ZOOMS!
         // AND DEATHGLARE!
 		if ((curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
-            || (curSong.toLowerCase() == 'deathglare' && ((curBeat >= 97 && curBeat < 129) || (curBeat >= 209 && curBeat < 241)) && camZooming && FlxG.camera.zoom < 1.35))
+            || (curSong.toLowerCase() == 'deathglare' && ((curBeat >= 96 && curBeat < 128) || (curBeat >= 208 && curBeat < 240)) && camZooming && FlxG.camera.zoom < 1.35))
 		{
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
@@ -2572,7 +2572,7 @@ class PlayState extends MusicBeatState
 		}
 
         if (curSong.toLowerCase() == 'deathglare' && evilTrail != null) {
-            evilTrail.visible = ((curBeat >= 97 && curBeat < 129) || (curBeat >= 209 && curBeat < 241));
+            evilTrail.visible = ((curBeat >= 96 && curBeat < 128) || (curBeat >= 208 && curBeat < 240));
         }
 
 		switch (curStage)
